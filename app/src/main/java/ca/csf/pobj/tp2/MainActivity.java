@@ -14,6 +14,8 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     private View rootView;
+    //BEN_CORRECTION : Pour que ce soit une constante, il faut qu'elle soit statique.
+    //BEN_CORRECTION : De plus, ce message d'erreur devrait se retrouver dans "strings.xml". Voir https://developer.android.com/guide/topics/resources/string-resource
     private final String ERROR_MESSAGE = "Le nombre doit etre entre 1 et 4999 inclusivement";
     private final String OUTPUT_NUMBER = "outputNumber";
     private String romanNumber;
@@ -48,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //BEN_CORRECTION : Cette fonction devrait uniquement retourner un boolean indiquant si la valeur
+    //                 saisie est valide. Actuellement, elle valide, démarre la conversion ou affiche
+    //                 un message d'erreur, ce qui fait un total de 3 responsabilités.
     private void checkIfNumberIsValid() {
         if (Integer.parseInt(this.inputEditText.getText().toString()) <= 4999 && Integer.parseInt(this.inputEditText.getText().toString()) >= 1) {
             this.convertValidNumber();
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //BEN_REVIEW : Plutôt que "generate", je l'aurais appeller "show".
     private void generateErrorMessage() {
         Snackbar.make(this.rootView, this.ERROR_MESSAGE,
                 Snackbar.LENGTH_SHORT)

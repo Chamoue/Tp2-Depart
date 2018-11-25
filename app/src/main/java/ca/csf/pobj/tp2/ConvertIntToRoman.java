@@ -1,5 +1,7 @@
 package ca.csf.pobj.tp2;
 
+//BEN_REVIEW : J'ai vu des algortihmes plus élégants.
+
 public class ConvertIntToRoman {
 
     private StringBuilder convertedRomanNumber;

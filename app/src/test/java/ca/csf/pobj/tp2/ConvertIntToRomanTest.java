@@ -40,6 +40,8 @@ public class ConvertIntToRomanTest {
 
     }
 
+    //BEN_CORRECTION : Les cas après le premier ne seront jamais exécutés, car une exception est lancée.
+    //                 Pour que cela marche, il faut créer un test par cas.
     @Test(expected = IllegalArgumentException.class)
     public void onConvertIntToRomanMethodExcpetions() {
         ConvertIntToRoman converter = new ConvertIntToRoman();

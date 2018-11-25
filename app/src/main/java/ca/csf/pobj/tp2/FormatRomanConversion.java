@@ -1,5 +1,7 @@
 package ca.csf.pobj.tp2;
 
+//BEN_CORRECTION : Je vois pas pourquoi cela ne fait pas directement partie de la classe "ConvertIntToRoman".
+
 public class FormatRomanConversion {
 
     private String formattedString;
@@ -22,6 +24,8 @@ public class FormatRomanConversion {
         return this.formattedString;
     }
 
+    //BEN_CORRECTION : Ces fonctions aurait du retourner "formattedString" et non pas le stocker
+    //                 en attribut de classe.
     private void formatNinehundred(String whatsLeftToFormat) {
         if (whatsLeftToFormat.contains("DCCCC")) {
             this.formattedString = whatsLeftToFormat.replaceAll("DCCCC", "CM");
